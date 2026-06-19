@@ -12,6 +12,8 @@ const app = express();
 const port = 3000
 
 app.use("/anime", animeRoutes)
+app.use("/characters", charactersRoutes)
+app.use("/images", imagesRoutes)
 
 // create a route
 app.get("/", (req, res) => {
