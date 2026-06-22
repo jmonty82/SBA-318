@@ -3,6 +3,7 @@ import express from "express"
 import animeRoutes from "./routes/anime.js"
 import charactersRoutes from "./routes/characters.js"
 import imagesRoutes from "./routes/images.js"
+import animeData from "./data/anime.js";
 
 
 // Create our express app
@@ -10,7 +11,7 @@ const app = express();
 
 // Set up a port
 const port = 3000
-
+app.use(express.json())
 
 
 app.use("/anime", animeRoutes)
@@ -24,16 +25,20 @@ app.get("/", (req, res) => {
     res.send("Hello World");
 })
 
-const items = {
+const items =
+{
     "id": "",
     "name": "",
     "summary": ""
 }
 // Create a POST route
-app.post("/", (req, res) => {
-    res.send("New Post Added!")
-    items.push(req.body);
-    res.status(201).json(item);
+app.post("/", (request, response) => {
+    // res.send(animeData)
+    const item = request.body;
+    console.log(items)
+    console.log(item)
+    animeData.push(item);
+    response.status(201).send(item);
 });
 
 // Create PATCH or PUT routes for data

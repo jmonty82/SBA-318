@@ -7,13 +7,25 @@ router.get("/", (req, res) => {
     res.send(animeData)
 })
 
-// create a POST route
-router.post("/", (req, res) => {
-    res.send(animeData)
-    items.push(req.body);
-    res.status(201).json(item);
-});
-
+// const items =
+// {
+//     "id": "",
+//     "name": "",
+//     "summary": ""
+// }
+// // // create a POST route
+// // router.post("/", (req, res) => {
+// //     res.send(animeData)
+// //     items.push(req.body);
+// //     res.status(201).json(item);
+// // });
+// // Create a POST route
+// router.post("/", (req, res) => {
+//     res.send(animeData)
+//     const item = req.body;
+//     animeData.push(items);
+//     res.status(201).send(item);
+// });
 
 
 
